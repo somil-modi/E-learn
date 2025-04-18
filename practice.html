@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice - SignLearn</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .practice-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .practice-section {
+            background-color: var(--card-background);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--box-shadow);
+        }
+
+        .practice-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .practice-card {
+            background-color: var(--background-color);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .practice-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .practice-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .practice-input {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 1rem 0;
+            border: 2px solid var(--secondary-color);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+        }
+
+        .practice-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .practice-btn:hover {
+            background-color: #3a5bef;
+        }
+
+        .feedback {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-hands-helping"></i>
+            <span>SignLearn</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="learning.html">Learn</a>
+            <a href="practice.html" class="active">Practice</a>
+            <a href="quiz.html">Quiz</a>
+        </div>
+        <div class="nav-actions">
+            <button class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="practice-container">
+        <h1>Practice Your Skills</h1>
+        <p class="subtitle">Choose a practice mode to begin</p>
+
+        <div class="practice-grid">
+            <div class="practice-card" onclick="startPractice('word')">
+                <i class="fas fa-font"></i>
+                <h2>Word to Sign</h2>
+                <p>Practice converting words to sign language</p>
+            </div>
+            <div class="practice-card" onclick="startPractice('sentence')">
+                <i class="fas fa-comment"></i>
+                <h2>Sentence to Sign</h2>
+                <p>Practice converting sentences to sign language</p>
+            </div>
+        </div>
+
+        <div id="exercise-section" style="display: none;">
+            <div class="exercise-container">
+                <h2 id="exercise-text"></h2>
+                <img id="sign-image" src="" alt="Sign Language Sign">
+                <div class="input-container">
+                    <input type="text" id="user-input" placeholder="Type your answer here">
+                    <button class="btn" onclick="checkPracticeAnswer()">Check Answer</button>
+                </div>
+                <div id="feedback" class="feedback"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About SignLearn</h4>
+                <p>Making sign language learning accessible to everyone.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="learning.html">Learn</a>
+                <a href="practice.html">Practice</a>
+                <a href="quiz.html">Quiz</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-envelope"></i> somil.modi.gupta@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +91 9917060828</p>
+                <p><i class="fas fa-map-marker-alt"></i> New Delhi, India</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 SignLearn. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="practice.js"></script>
+</body>
+</html> 
